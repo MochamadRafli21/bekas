@@ -10,7 +10,7 @@ export const productRouter = router({
   }),
 
   get: publicProcedure.input(z.string()).query(({ input }) => {
-    return prisma.product.findUnique({ where: { id: input } });
+    return prisma.product.findUnique({ where: { slug: input } });
   }),
 
   create: publicProcedure

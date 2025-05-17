@@ -23,6 +23,7 @@
     "zod": "^3.24.4"
   },
   "scripts": {
+    "dev": "bun run index.ts",
     "seed": "bun run ./prisma/seed.ts"
   }
 }
