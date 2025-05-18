@@ -5,9 +5,29 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export const productRouter = router({
-  list: publicProcedure.query(() => {
-    return prisma.product.findMany();
-  }),
+  list: publicProcedure
+    .input(
+      z
+        .object({
+          q: z.string().optional(),
+        })
+        .optional(),
+    )
+    .query(({ input }) => {
+      return prisma.product.findMany({
+        where: input?.q
+          ? {
+              name: {
+                contains: input.q,
+                mode: "insensitive", // Case-insensitive search
+              },
+            }
+          : undefined,
+        orderBy: {
+          createdAt: "desc",
+        },
+      });
+    }),
 
   get: publicProcedure.input(z.string()).query(({ input }) => {
     return prisma.product.findUnique({ where: { slug: input } });

@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { trpc, trpcClient } from "./lib/trpc";
 import ReactDOM from "react-dom/client";
 import App from "./App";
+import "./App.css";
 
 const queryClient = new QueryClient();
 
