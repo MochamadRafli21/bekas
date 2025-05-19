@@ -27,7 +27,7 @@ export default function ProductSearchCommand() {
   };
 
   return (
-    <div className="relative w-full max-w-sm">
+    <div className="relative w-full">
       <Command
         shouldFilter={false}
         className="w-full max-w-sm border rounded-lg"
