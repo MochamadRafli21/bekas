@@ -41,7 +41,7 @@ export default function ProductGrid() {
           <Filter />
         </div>
         <div className="w-full md:px-2">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
             {products?.items?.map((p) => (
               <Link key={p.id} to={`/product/${p.slug}`}>
                 <div key={p.id} className="border rounded p-2 shadow">
