@@ -13,7 +13,7 @@ export default function ProductSearchCommand() {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
-  const { data: products = [] } = trpc.product.list.useQuery({ q: query });
+  const { data: products } = trpc.product.list.useQuery({ q: query });
 
   const searchProduct = () => {
     navigate(`/?q=${query}`);
@@ -43,7 +43,7 @@ export default function ProductSearchCommand() {
             <CommandItem value={query} onSelect={searchProduct}>
               find {query || "used phone"}...
             </CommandItem>
-            {products.map((product) => (
+            {products?.items?.map((product) => (
               <CommandItem
                 key={product.id}
                 value={product.name}
