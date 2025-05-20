@@ -14,7 +14,7 @@ export default function ProductDetail() {
       <img
         src={product.imageUrl || ""}
         alt={product.name}
-        className="w-full h-80 md:p-2 object-cover rounded"
+        className="w-full h-80 md:p-2 object-contain rounded"
       />
       <div className="p-4">
         <h1 className="text-2xl font-bold mt-4">{product.name}</h1>

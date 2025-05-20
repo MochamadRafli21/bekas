@@ -41,17 +41,19 @@ export default function ProductGrid() {
           <Filter />
         </div>
         <div className="w-full md:px-2">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
+          <div className="grid grid-cols-2 md:grid-cols-5 p-4 gap-4">
             {products?.items?.map((p) => (
               <Link key={p.id} to={`/product/${p.slug}`}>
-                <div key={p.id} className="border rounded p-2 shadow">
+                <div key={p.id} className="border rounded shadow">
                   <img
                     src={p?.imageUrl || ""}
                     alt={p.name}
-                    className="w-full h-40 object-cover"
+                    className="w-full h-40 object-contain"
                   />
-                  <h2 className="font-bold">{p.name}</h2>
-                  <p>${parseFloat(p.price).toFixed(2)}</p>
+                  <div className="p-2">
+                    <h2 className="font-bold">{p.name}</h2>
+                    <p>${parseFloat(p.price).toFixed(2)}</p>
+                  </div>
                 </div>
               </Link>
             ))}

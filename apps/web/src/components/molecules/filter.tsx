@@ -27,7 +27,7 @@ export default function Filter() {
   };
 
   return (
-    <div className="md:border md:border-gray-200 px-2 py-4 md:rounded-md ">
+    <div className="md:border md:border-gray-200 md:ml-6 mt-2 px-6 py-4 md:rounded-md ">
       <Label className="text-lg font-semibold mb-2">Filter</Label>
       <Label className="text-sm font-semibold mb-1 mt-2">Lowest Price</Label>
       <Input
