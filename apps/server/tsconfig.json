@@ -20,6 +20,10 @@
     "noPropertyAccessFromIndexSignature": false,
 
     "outDir": "dist"
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
