@@ -6,7 +6,9 @@ import { handle } from "hono/vercel";
 
 const app = new Hono();
 
-app.get("/hello", (c) => c.json({ msg: "Hello world" }));
+app.get("/", (c) => {
+  return c.json({ message: "hello" });
+});
 app.use(
   "/trpc/*",
   trpcServer({
