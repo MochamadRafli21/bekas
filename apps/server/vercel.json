@@ -1,9 +1,13 @@
 {
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/api"
+  "version": 2,
+  "functions": {
+    "api/index.ts": {
+      "runtime": "edge",
+      "launcherType": "hono"
     }
-  ],
-  "redirects": [{ "source": "/", "destination": "/api", "permanent": false }]
+  },
+  "routes": [
+    { "src": "/trpc/(.*)", "dest": "/api/index.ts" },
+    { "src": "/", "dest": "/api/index.ts" }
+  ]
 }
