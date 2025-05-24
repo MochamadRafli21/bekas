@@ -1,7 +1,7 @@
 import { handle } from "hono/vercel";
 // eslint-disable-next-line ts/ban-tscomment
 // @ts-expect-error
-import app from "../dist/src/index.js";
+import app from "../dist/index.js";
 export const runtime = "edge";
 
 const handler = handle(app);
