@@ -1,31 +1,8 @@
-import { trpcServer } from "@hono/trpc-server";
-import { appRouter } from "./trpc/index.ts";
-import { Hono } from "hono";
-import { cors } from "hono/cors";
 import { handle } from "hono/vercel";
-
-export const runtime = "nodejs";
-
-const app = new Hono().basePath("/api");
-
-app.use(
-  "*",
-  cors({
-    origin: "*",
-    allowMethods: ["GET", "POST", "OPTIONS"],
-    allowHeaders: ["Content-Type", "Authorization"],
-  }),
-);
-
-app.get("/", (c) => {
-  return c.json({ message: "hello" });
-});
-app.use(
-  "/trpc/*",
-  trpcServer({
-    router: appRouter,
-  }),
-);
+// eslint-disable-next-line ts/ban-tscomment
+// @ts-expect-error
+import app from "../dist/src/index.js";
+export const runtime = "edge";
 
 const handler = handle(app);
 
@@ -34,3 +11,5 @@ export const POST = handler;
 export const PATCH = handler;
 export const PUT = handler;
 export const OPTIONS = handler;
+export const DELETE = handler;
+export const HEAD = handler;

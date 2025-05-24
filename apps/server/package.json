@@ -23,8 +23,8 @@
     "zod": "^3.24.4"
   },
   "scripts": {
-    "dev": "bun run ./api/index.ts",
-    "build": "bun build api/index.ts",
+    "dev": "bun run ./src/index.ts",
+    "build": "bun build src/index.ts --outdir dist",
     "seed": "bun run ./prisma/seed.ts"
   }
 }
