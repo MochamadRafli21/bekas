@@ -5,5 +5,15 @@
       "destination": "/api"
     }
   ],
-  "redirects": [{ "source": "/", "destination": "/api", "permanent": false }]
+  "redirects": [{ "source": "/", "destination": "/api", "permanent": false }],
+  "version": 2,
+  "functions": {
+    "api/index.ts": {
+      "runtime": "edge"
+    }
+  },
+  "routes": [
+    { "src": "/trpc/(.*)", "dest": "api/index.ts" },
+    { "src": "/(.*)", "dest": "api/index.ts" }
+  ]
 }
