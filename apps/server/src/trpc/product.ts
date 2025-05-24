@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { publicProcedure, router } from "./router";
+import { publicProcedure, router } from "./router.js";
 import { PrismaClient, Prisma } from "@prisma/client";
 
 const prisma = new PrismaClient();
