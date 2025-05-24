@@ -5,9 +5,5 @@
       "destination": "/api"
     }
   ],
-  "redirects": [{ "source": "/", "destination": "/api", "permanent": false }],
-  "routes": [
-    { "src": "/trpc/(.*)", "dest": "/api/index.ts" },
-    { "src": "/", "dest": "/api/index.ts" }
-  ]
+  "redirects": [{ "source": "/", "destination": "/api", "permanent": false }]
 }
