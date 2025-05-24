@@ -17,8 +17,8 @@
     "seed": "bun run ./apps/server/prisma/seed.ts",
     "migrate": "bunx prisma migrate dev --schema=./apps/server/prisma/schema.prisma --name init",
     "generate": "bunx prisma generate --schema=./apps/server/prisma/schema.prisma",
-    "build:web": "bun run build --workspace apps/web"
-    "build:api": "bun run build --workspace apps/server"
+    "build:web": "bun run build --workspace apps/web",
+    "build:api": "bun run build --workspace apps/server",
     "build": "bun run build build:server && bun run build:web"
   }
 }
