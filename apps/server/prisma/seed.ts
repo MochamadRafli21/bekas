@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import { config } from "dotenv";
 import { customAlphabet } from "nanoid";
 
-config();
+config({ path: "../../.env" });
 
 const prisma = new PrismaClient();
 const nanoid = customAlphabet("1234567890abcdef", 6);
