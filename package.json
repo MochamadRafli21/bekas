@@ -12,10 +12,13 @@
   },
   "scripts": {
     "dev:web": "bun --cwd apps/web dev",
-    "dev:server": "bun run app/server/index.ts",
-    "dev": "bun run dev:server & bun run dev:web"
-    "seed": "bun run ./apps/server/prisma/seed.ts"
-    "migrate": "bunx prisma migrate dev --schema=/app/server/prisma/schema.prisma --name init",
-    "generate": "bunx prisma generate --schema=/app/server/prisma/schema.prisma",
+    "dev:server": "bun run ./apps/server/index.ts",
+    "dev": "bun run dev:server & bun run dev:web",
+    "seed": "bun run ./apps/server/prisma/seed.ts",
+    "migrate": "bunx prisma migrate dev --schema=./apps/server/prisma/schema.prisma --name init",
+    "generate": "bunx prisma generate --schema=./apps/server/prisma/schema.prisma",
+    "build": "bun run build:server && bun run build:web",
+    "build:server": "bun run build --workspace apps/server",
+    "build:web": "bun run build --workspace apps/web"
   }
 }

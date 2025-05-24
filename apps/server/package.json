@@ -24,6 +24,7 @@
   },
   "scripts": {
     "dev": "bun run index.ts",
-    "seed": "bun run ./prisma/seed.ts"
+    "seed": "bun run ./prisma/seed.ts",
+    "build": "bun build ./index.ts --outdir dist"
   }
 }
