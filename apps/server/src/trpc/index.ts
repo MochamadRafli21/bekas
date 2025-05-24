@@ -1,5 +1,5 @@
-import { router } from "./router.js";
-import { productRouter } from "./product.js";
+import { router } from "./router";
+import { productRouter } from "./product";
 
 export const appRouter = router({
   product: productRouter,
