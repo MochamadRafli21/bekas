@@ -4,7 +4,9 @@ import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { handle } from "hono/vercel";
 
-const app = new Hono();
+export const runtime = "nodejs";
+
+const app = new Hono().basePath("/api");
 
 app.use(
   "*",
