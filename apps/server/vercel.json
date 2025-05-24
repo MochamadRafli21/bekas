@@ -2,10 +2,10 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/**/*.ts",
+      "src": "src/**/*.ts",
       "use": "@vercel/node",
       "config": { "zeroConfig": true }
     }
   ],
-  "routes": [{ "src": "/api/(.*)", "dest": "api/$1.ts" }]
+  "routes": [{ "src": "/src/(.*)", "dest": "src/$1.ts" }]
 }
