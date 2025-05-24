@@ -7,7 +7,7 @@
     "@types/bun": "latest"
   },
   "peerDependencies": {
-    "typescript": "^5"
+    "typescript": "^5.8.3"
   },
   "dependencies": {
     "@hono/node-server": "^1.14.2",
@@ -24,7 +24,8 @@
     "zod": "^3.24.4"
   },
   "scripts": {
-    "dev": "bun run ./src/index.ts",
+    "dev": "tsx watch ./src/index.ts",
+    "build": "tsc",
     "seed": "bun run ./prisma/seed.ts"
   }
 }
