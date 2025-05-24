@@ -2,8 +2,7 @@
   "version": 2,
   "functions": {
     "api/index.ts": {
-      "runtime": "edge",
-      "launcherType": "hono"
+      "runtime": "edge"
     }
   },
   "routes": [
