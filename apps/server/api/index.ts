@@ -1,6 +1,6 @@
 import { handle } from "@hono/node-server/vercel";
-// eslint-disable-next-line ts/ban-tscomment
-// @ts-expect-error
+// eslint-disable-next-line
+// @ts-ignore
 import app from "../dist/index.js";
 
 export default handle(app);

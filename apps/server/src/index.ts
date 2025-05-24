@@ -1,5 +1,5 @@
 import { trpcServer } from "@hono/trpc-server";
-import { appRouter } from "./trpc";
+import { appRouter } from "./trpc/index";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 
