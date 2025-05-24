@@ -6,9 +6,9 @@ import { handle } from "hono/vercel";
 
 const app = new Hono();
 
-app.get("/hello", (c) => c.json({ msg: "Hello world" }));
+app.get("/api/hello", (c) => c.json({ msg: "Hello world" }));
 app.use(
-  "/trpc/*",
+  "/api/trpc/*",
   trpcServer({
     router: appRouter,
   }),
