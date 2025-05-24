@@ -6,6 +6,15 @@ import { handle } from "hono/vercel";
 
 const app = new Hono();
 
+app.use(
+  "*",
+  cors({
+    origin: "*",
+    allowMethods: ["GET", "POST", "OPTIONS"],
+    allowHeaders: ["Content-Type", "Authorization"],
+  }),
+);
+
 app.get("/", (c) => {
   return c.json({ message: "hello" });
 });
@@ -14,7 +23,6 @@ app.use(
   trpcServer({
     router: appRouter,
   }),
-  cors({ origin: "*" }),
 );
 
 const handler = handle(app);
