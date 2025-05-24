@@ -5,11 +5,12 @@ import { cors } from "hono/cors";
 
 const app = new Hono();
 
-app.use("*", cors({ origin: "*" }));
+app.get("/hello", (c) => c.json({ msg: "Hello world" }));
 app.use(
   "/trpc/*",
   trpcServer({
     router: appRouter,
   }),
+  cors({ origin: "*" }),
 );
 export default app;
