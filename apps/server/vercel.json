@@ -7,5 +7,5 @@
       "config": { "zeroConfig": true }
     }
   ],
-  "routes": [{ "src": "/src/(.*)", "dest": "src/$1.ts" }]
+  "routes": [{ "src": "/src/(.*)", "dest": "src/index.ts" }]
 }
