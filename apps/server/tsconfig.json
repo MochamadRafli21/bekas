@@ -11,7 +11,7 @@
     "declarationMap": true,
     "sourceMap": true
   },
-  "include": ["src/**/*.ts", "../../shared/types/*.ts"],
+  "include": ["api/**/*.ts", "src/**/*.ts", "../../shared/types/*.ts"],
 
   "exclude": ["node_modules", "dist"]
 }
