@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import BasePaginations from "@/components/molecules/base-paginations";
 import Filter from "@/components/molecules/filter";
 import LoadingScreen from "@/components/molecules/loading-screen";
+import { productListInputSchema } from "../../../../../../shared/types/product.type";
 
 export default function ProductGrid() {
   const [searchParams] = useSearchParams();
@@ -24,15 +25,16 @@ export default function ProductGrid() {
 
     return params ? parseInt(params) : undefined;
   }, [searchParams]);
+  const { data: products, isLoading } = trpc.product.list.useQuery(
+    productListInputSchema.parse({
+      q,
+      page,
+      minPrice,
+      maxPrice,
+    }),
+  );
 
-  const { data: products, isLoading } = trpc.product.list.useQuery({
-    q,
-    page,
-    minPrice,
-    maxPrice,
-  });
-
-  if (isLoading) return <LoadingScreen value={80} />;
+  if (isLoading) return <LoadingScreen />;
 
   return (
     <>

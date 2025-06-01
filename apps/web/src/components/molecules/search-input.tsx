@@ -7,13 +7,18 @@ import {
 import { useNavigate } from "react-router-dom";
 import { trpc } from "@/lib/trpc";
 import { useState } from "react";
+import { productListInputSchema } from "../../../../../shared/types/product.type";
 
 export default function ProductSearchCommand() {
   const [query, setQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
-  const { data: products } = trpc.product.list.useQuery({ q: query });
+  const { data: products } = trpc.product.list.useQuery(
+    productListInputSchema.parse({
+      q: query,
+    }),
+  );
 
   const searchProduct = () => {
     navigate(`/?q=${query}`);
@@ -27,7 +32,11 @@ export default function ProductSearchCommand() {
   };
 
   return (
-    <div className="relative w-full">
+    <div
+      className="relative w-full"
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
+    >
       <Command
         shouldFilter={false}
         className="w-full max-w-sm border rounded-lg"
@@ -36,7 +45,6 @@ export default function ProductSearchCommand() {
           placeholder="Search phones..."
           value={query}
           onValueChange={setQuery}
-          onClick={() => setIsOpen(!isOpen)}
         />
         {query && isOpen ? (
           <CommandList className="absolute top-full left-0 z-50 w-full bg-white shadow-lg border rounded-md mt-1 max-h-64 overflow-auto">
