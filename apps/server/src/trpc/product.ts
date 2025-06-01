@@ -3,7 +3,7 @@ import { PrismaClient, Prisma } from "@prisma/client";
 import {
   productListInputSchema,
   productGetInputSchema,
-} from "../../../../shared/types/product.type.js";
+} from "../../../../shared/types/product.type";
 
 const prisma = new PrismaClient();
 
